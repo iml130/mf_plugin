@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: The MF-Plugin Contributors
+# SPDX-License-Identifier: MIT
+
+Struct Package
+    package_id: string
+End
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+Event packagesToDeliver
+    value: 0
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+
+    FinishedBy packagesToDeliver.value == 0
+End
+
+
+Event transportSuccessful
+    value: true
+End
+
+Task mainTask
+    helloWorld
+End
+
+Task helloWorld
+    PackingService
+        Out
+            package: Package
+
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+
+    FinishedBy transportSuccessful.value 
+End

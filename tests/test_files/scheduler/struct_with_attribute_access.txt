@@ -1,0 +1,15 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+{"event_type": "instance_update", "data": {"instance_name": "size_warehouse1", "new_values": {"height": 10, "width": 10}}}
+{"event_type": "order_step_update", "data": {"task": "0", "order_step_uuid": "0", "status": "moved_to_location"}}
+
+# this should not work
+{"event_type": "order_step_update", "data": {"task": "0", "order_step_uuid": "1", "status": "moved_to_location"}}
+
+# update the instance
+{"event_type": "instance_update", "data": {"instance_name": "size_production1", "new_values": {"height": 10, "width": 10}}}
+{"event_type": "order_step_update", "data": {"task": "0", "order_step_uuid": "1", "status": "moved_to_location"}}

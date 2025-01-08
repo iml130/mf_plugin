@@ -1,0 +1,13 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Rule before(event1, event2, offset = 0)
+    (((((((  (event1.time + offset < event2.time) And (event1.value == 5)  )))))))
+End
+
+Rule orderOfEvents(event1, event2)
+    before(event1, event2, 50) And (before(event2, event3) Or ((event2.value + 50 == 100) == true))
+End

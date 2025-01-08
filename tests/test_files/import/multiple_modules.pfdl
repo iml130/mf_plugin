@@ -1,0 +1,88 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Module intralogistic
+    Struct Test
+        type : string
+    End
+
+    Struct Test2
+        value : string
+    End
+End
+
+Module simpleTransport    
+    Location location1
+        id: "0x4711"
+        type: "pallet"
+    End
+
+    Location location2
+        id: "0x4712"
+        type: "pallet"
+    End
+
+    TransportOrderStep tos1
+        Location : location1
+    End
+
+    TransportOrderStep tos2
+        Location : location2
+    End
+
+    Task simpleTransport        
+        Transport
+        From tos1
+        To tos2
+    End
+End
+
+# Other stuff that should not get imported to pass the test!
+
+Rule before(event1, event2, offset = 0)
+    (event1.time + offset < event2.time) And (event1.value == 5)
+End
+
+Rule orderOfEvents(event1, event2)
+    before(event1, event2, 50) # implicit and
+    before(event2, event3) # implicit and
+    event2.value == 100
+End
+
+Event manualLoadingConfirmation
+    id : "buttonFtfIsLoaded"
+    value : false
+End
+
+Event manualLoadingConfirmation2
+    id : "buttonFtfIsLoaded"
+    value : false
+End
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    Location : warehouse1
+End
+
+TransportOrderStep tosProduction1
+    Location : production1
+End
+
+Task helloWorld
+    StartedBy: orderOfEvents(manualLoadingConfirmation, manualLoadingConfirmation2)
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+End

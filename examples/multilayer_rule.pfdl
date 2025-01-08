@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: The MF-Plugin Contributors
+# SPDX-License-Identifier: MIT
+
+Rule before(event1, event2, offset=10)
+    event1.value == 5 And event1.time < event2.time + offset
+End
+
+Rule orderOfEvents(event1, event2)
+    before(event1, event2) # implicit and
+    event2.value == 150
+End
+
+Event manualLoadingConfirmation
+    id : "buttonFtfIsLoaded"
+    value : 5
+End
+
+Event manualLoadingConfirmation2
+    id : "buttonFtfIsLoaded"
+    value : 150
+End
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+End
+
+Task mainTask
+    helloWorld
+End
+
+Task helloWorld
+    StartedBy orderOfEvents(manualLoadingConfirmation, manualLoadingConfirmation2)
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+End

@@ -1,0 +1,29 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+TransportOrderStep tos1
+    Parameters 5
+End
+
+TransportOrderStep tos2
+    Parameters 5.0
+End
+
+TransportOrderStep tos3
+    Parameters true
+End
+
+TransportOrderStep tos4
+    Parameters false
+End
+
+TransportOrderStep tos5
+    Parameters "a string"
+End
+
+TransportOrderStep tos6
+    Parameters {"loadDirection" : "unload" , "liftHeight": 0}
+End

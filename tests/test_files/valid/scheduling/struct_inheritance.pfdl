@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: The MF-Plugin Contributors
+# SPDX-License-Identifier: MIT
+
+Struct LocationWithWeight : Location
+    weight: number
+End
+
+Struct LocationWithWeightAndHeight:LocationWithWeight
+    height: number
+End
+
+LocationWithWeight locationOne
+    weight: 10
+    type: "pallet"
+End
+
+LocationWithWeightAndHeight locationTwo
+    weight: 20
+    height: 10
+    type: "pallet"
+End
+
+TransportOrderStep one
+    Location locationOne
+    FinishedBy locationOne.weight == 10
+End
+
+TransportOrderStep two
+    StartedBy locationTwo.weight == 20 And locationTwo.height > 3
+    Location locationTwo
+End
+
+Task mainTask
+    Transport
+    From one
+    To two
+End

@@ -1,0 +1,13 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "0", "status": "moved_to_location"}}
+
+{"event_type": "instance_update", "data": {"instance_name": "manualLoadingConfirmation", "new_values": {"value": false}}}
+{"event_type": "instance_update", "data": {"instance_name": "manualLoadingConfirmation", "new_values": {"value": true}}}
+
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "1", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "2", "status": "moved_to_location"}}

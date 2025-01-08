@@ -1,0 +1,11 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Task helloWorld
+    Trasport
+    From tosWarehouse1
+    To tosProduction1
+End

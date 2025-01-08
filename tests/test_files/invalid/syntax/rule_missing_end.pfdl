@@ -1,0 +1,10 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Rule identifier(event1, event2)
+    before(event1, event2, 50)
+    before(event2, event3)
+    event2.value == 100

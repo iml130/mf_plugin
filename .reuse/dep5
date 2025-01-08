@@ -1,0 +1,12 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: mf-plugin
+Upstream-Contact:
+Source: https://github.com/iml130/mf-plugin
+
+Files: img/*
+Copyright: The MF-Plugin Contributors
+License: CC-BY-4.0
+
+Files: grammar/*
+Copyright: The MF-Plugin Contributors
+License: MIT

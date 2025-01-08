@@ -1,0 +1,41 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Struct Package
+    package_id: string
+End
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+End
+
+Task mainTask
+    PackingService
+        Out
+            package: Package
+
+    helloWorld
+End
+
+Task helloWorld
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+End

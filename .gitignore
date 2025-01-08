@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: The PFDL Contributors
+# SPDX-License-Identifier: CC0-1.0
+
+__pycache__/
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.venv
+
+*.manifest
+*.spec
+
+htmlcov/
+.coverage
+.coverage.*
+.cache
+coverage.xml
+
+*.interp
+*.tokens
+*.vscode
+*.antlr
+
+# ignore docu build folder
+site/
+
+# ignore log files
+temp/

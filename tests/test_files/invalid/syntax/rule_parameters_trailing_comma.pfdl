@@ -1,0 +1,9 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Rule before(event1,)
+    (event1.time + offset < event2.time) And (event1.value == 5)
+End

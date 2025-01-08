@@ -1,0 +1,23 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Task helloWorld
+    StartedBy agvLoaded.value == true
+
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+
+    Move
+    To tosWarehouse2
+
+    Action
+    Do aosWarehouse2
+
+    Constraints {}
+
+    FinishedBy agvLoaded.value == true
+End

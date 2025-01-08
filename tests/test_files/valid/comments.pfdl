@@ -1,0 +1,53 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+
+# A comment
+
+
+
+Struct MyLocationInheritence : Location
+    weight : string
+End
+
+Event agvLoaded
+    name : "lager_agv_loaded"
+    value : false
+End
+
+# A comment
+Rule orderOfEvents(event1, event2)
+    before(event1, event2, 50) # implicit and
+    before(event2, event3) # implicit and
+    event2.value == 100
+End
+# A comment
+Rule before(event1, event2, offset = 0)
+    (event1.time + offset < event2.time) And (event1.value == 5)
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+    FinishedBy agvLoaded.value == true # A comment
+End # A comment
+
+TransportOrderStep tosProduction1 # A comment
+    Location production1 # A comment
+ # A comment
+    Parameters {"loadDirection" : "unload" , "liftHeight": 0}
+End
+
+# A comment
+
+ActionOrderStep aosWarehouse1
+    Parameters {"loadDirection" : "load" , "liftHeight": 0} # A comment
+End
+
+Task helloWorld
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+End

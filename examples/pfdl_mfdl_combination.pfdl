@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: The MF-Plugin Contributors
+# SPDX-License-Identifier: MIT
+
+Struct NewLocation : Location
+    weight: number
+End
+
+NewLocation warehouse1
+    id: "0x4711"
+    type: "pallet"
+    weight: 10
+End
+
+NewLocation production1
+    id: "0x4712"
+    type: "pallet"
+    weight: 5
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+End
+
+Rule myRule(event1)
+    event1.weight > 5
+End
+
+Task mainTask
+    GetLocations
+        Out
+            location1: Location
+            location2: NewLocation
+
+    Condition
+        myRule(warehouse1) # TODO adjust when variables and instances are harmonized 
+    Passed
+        Transport
+        From tosWarehouse1
+        To tosProduction1
+    Failed
+        Test
+End

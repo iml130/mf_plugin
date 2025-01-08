@@ -1,0 +1,49 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Location pickupItem
+    id: "s1_pickup"
+    type: "SmallLoadCarrier"
+End
+
+Location dropoffItem
+    id: "ws1_dropoff"
+    type: "SmallLoadCarrier"
+End
+
+Event event1
+    id : "lager_agv_loaded"
+    value : 10
+End
+
+Event event2
+    id : "lager_agv_loaded"
+    value : false
+End
+
+Rule before(event1, event2, offset = 0)
+    event1.time + offset < event2.time
+End
+
+TransportOrderStep tosWarehouse1
+    Location pickupItem
+End
+
+TransportOrderStep tosProduction1
+    Location dropoffItem
+End
+
+Task helloWorld
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+    
+    FinishedBy unknownRule(event1, event2)
+End
+
+Task mainTask
+    Test
+End

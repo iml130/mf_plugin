@@ -1,0 +1,52 @@
+# SPDX-FileCopyrightText: The MF-Plugin Contributors
+# SPDX-License-Identifier: MIT
+
+Struct LocationSize
+    height: number
+    width: number
+End
+
+Struct LocationWithSize:Location
+    height: number
+    width: number
+End
+
+LocationSize size_warehouse1
+    height: 10
+    width: 10
+End
+
+LocationSize size_production1
+    height: 20
+    width: 20
+End
+
+LocationWithSize warehouse1
+    id: "0x4711"
+    type: "pallet"
+    height: size_warehouse1.height
+    width: size_warehouse1.width
+End
+
+LocationWithSize production1
+    id: "0x4712"
+    type: "pallet"
+    height: size_production1.height
+    width: size_production1.width
+End
+
+TransportOrderStep tosWarehouse1
+    StartedBy warehouse1.height >= 10 And warehouse1.width >= 10
+    Location warehouse1
+End
+
+TransportOrderStep tosProduction1
+    StartedBy production1.height >= 10 And production1.width >= 10
+    Location production1
+End
+
+Task mainTask
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+End

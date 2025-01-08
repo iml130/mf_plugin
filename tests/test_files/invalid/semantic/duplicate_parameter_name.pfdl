@@ -1,0 +1,13 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Rule rule(event1, event1)
+    true
+End
+
+Task mainTask
+    Test
+End

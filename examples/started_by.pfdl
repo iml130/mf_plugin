@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: The MF-Plugin Contributors
+# SPDX-License-Identifier: MIT
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+Event startTransport
+    id : "buttonFtfIsLoaded"
+    value : true
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+End
+
+Task mainTask
+    helloWorld
+End
+
+Task helloWorld
+    StartedBy startTransport.value == true
+
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+End

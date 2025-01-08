@@ -1,0 +1,7 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Import pfdl_scheduler.plugins.mf_plugin.tests.test_files.import.multiple_modules.intralogistic, pfdl_scheduler.plugins.mf_plugin.tests.test_files.import.multiple_modules.simpleTransport

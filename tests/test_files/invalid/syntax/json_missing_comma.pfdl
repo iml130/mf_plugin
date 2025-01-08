@@ -1,0 +1,12 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+MyStructComposition structComp1
+    my_location : {
+        "id" : "0x4711"
+        "type":"pallet"
+    }
+End

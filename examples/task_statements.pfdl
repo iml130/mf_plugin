@@ -1,0 +1,62 @@
+# SPDX-FileCopyrightText: The MF-Plugin Contributors
+# SPDX-License-Identifier: MIT
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+    
+Location warehouse2
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+MoveOrderStep tosWarehouse2
+    Location warehouse2
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+End
+
+
+ActionOrderStep aosWarehouse2
+    Parameters {"loadDirection" : "load" , "liftHeight": 0}
+End
+        
+Event agvLoaded
+    value: true
+End
+
+Task helloWorld
+    StartedBy agvLoaded.value
+
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+
+    Move
+    To tosWarehouse2
+
+    Action
+    Do aosWarehouse2
+    
+    Constraints{"height": 10}
+
+    FinishedBy agvLoaded.value == true
+
+
+End
+
+Task mainTask
+    helloWorld    
+End

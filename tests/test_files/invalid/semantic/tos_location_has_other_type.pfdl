@@ -1,0 +1,23 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Location dropoffItem
+    id: "ws1_dropoff"
+    type: "SmallLoadCarrier"
+End
+
+Event event
+    id: "event"
+    value: true
+End
+
+TransportOrderStep loadStorage
+    Location event
+End
+
+Task mainTask
+    Test
+End

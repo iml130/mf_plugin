@@ -1,0 +1,48 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Event booleanEvent 
+    value: true
+End
+
+Event stringEvent
+    value: "testString"
+End
+
+Event numberEvent
+    value: 11.2
+End
+
+Struct NewLocation : Location
+    weight: number
+End
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    StartedBy booleanEvent.value
+    Location warehouse1
+    FinishedBy stringEvent.value == "testString"
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+    FinishedBy numberEvent.value >= 11
+End
+
+Task mainTask
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+End

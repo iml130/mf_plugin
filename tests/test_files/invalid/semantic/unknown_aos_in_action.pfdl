@@ -1,0 +1,40 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Location pickupItem
+    id: "location_id"
+    type: "SmallLoadCarrier"
+End
+
+Location dropoffItem
+    id: "location_id"
+    type: "SmallLoadCarrier"
+End
+
+TransportOrderStep loadStorage
+    Location pickupItem 
+End
+
+TransportOrderStep unloadWorkstation1
+    Location dropoffItem
+End
+
+ActionOrderStep actionStep
+    Parameters {} 
+End
+
+Task helloTask
+    Transport
+    From loadStorage
+    To unloadWorkstation1
+
+    Action
+    Do unknownAos
+End
+
+Task mainTask
+    Test
+End

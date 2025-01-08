@@ -1,0 +1,9 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Rule orderOfEvents(event1, event2)
+    before(event1, event2, 50) And before(event2, event3) And event2.value == 100
+End

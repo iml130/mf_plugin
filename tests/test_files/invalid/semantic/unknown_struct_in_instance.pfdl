@@ -1,0 +1,13 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+UnknownStruct instance
+    id: "instance_id"
+End
+
+Task mainTask
+    Test
+End

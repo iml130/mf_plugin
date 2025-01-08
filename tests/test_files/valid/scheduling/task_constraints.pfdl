@@ -1,0 +1,45 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Event manualLoadingConfirmation
+    id : "buttonFtfIsLoaded"
+    value : false
+End
+
+Event manualLoadingConfirmation2
+    id : "buttonFtfIsLoaded"
+    value : false
+End
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+End
+
+Task mainTask
+    constraintTask
+End
+
+Task constraintTask
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+
+    Constraints {"TransportStart" : "45 14 * * *", "TransportFinished" : "4514 * * *"}
+End

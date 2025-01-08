@@ -1,0 +1,48 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Event event1
+    id : "lager_agv_loaded"
+    value : "10"
+End
+
+Event event2
+    id : "lager_agv_loaded"
+    value : false
+End
+
+Rule expression(event1, event2)
+    unknownIdentifier.value
+End
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+End
+
+Task helloWorld
+    StartedBy expression(event1, event2)
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+End
+
+Task mainTask
+    Test
+End

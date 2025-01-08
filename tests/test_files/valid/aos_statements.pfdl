@@ -1,0 +1,14 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+ActionOrderStep aosWarehouse1
+    StartedBy agvLoaded.value == true
+
+    OnDone helloWorld
+    Parameters {"loadDirection" : "load" , "liftHeight": 0}
+
+    FinishedBy agvLoaded.value == true
+End

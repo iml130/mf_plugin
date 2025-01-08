@@ -1,0 +1,48 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location warehouse2
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+End
+
+MoveOrderStep mosWarehouse1
+    Location warehouse2
+End
+
+ActionOrderStep aosWarehouse2
+    Parameters {"loadDirection" : "load" , "liftHeight": 0}
+End
+
+Task mainTask
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+
+    Move
+    To mosWarehouse1
+
+    Action
+    Do aosWarehouse2
+End

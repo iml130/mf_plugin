@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: The MF-Plugin Contributors
+# SPDX-License-Identifier: MIT
+
+Rule mrReady(event1, event2)
+    event1.value Or event2.value
+End
+
+Event mr1Ready
+    id : "buttonMR1Ready"
+    value : true
+End
+
+Event mr2Ready
+    id : "buttonMR2Ready"
+    value : true
+End
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+End
+
+Task mainTask
+    Parallel
+        helloWorld
+        helloWorld
+End
+
+Task helloWorld
+    StartedBy mrReady(mr1Ready, mr2Ready)
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+End

@@ -1,0 +1,34 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Struct MyStructComposition
+    weight : string
+    my_location : Location
+End
+
+Struct MyStructComposition_2
+    struct_comp: MyStructComposition
+End
+
+Struct MyStructComposition_3
+    struct_comp_2: MyStructComposition_2
+End
+
+MyStructComposition_3 structComp3Json
+    struct_comp_2: {
+        "struct_comp": {
+            "weight": "50 kg",
+            "my_location": {
+                "id": 100,
+                "type": "type"
+            }
+        }
+    }
+End
+
+Task mainTask
+    Test
+End

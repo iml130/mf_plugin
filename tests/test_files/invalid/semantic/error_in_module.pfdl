@@ -1,0 +1,27 @@
+# Copyright The MF-Plugin Contributors
+#
+# Licensed under the MIT License.
+# For details on the licensing terms, see the LICENSE file.
+# SPDX-License-Identifier: MIT
+
+Module aModule
+    Struct Test
+        value : string
+    End
+
+    Struct Test2
+        timing : string
+    End
+
+    Struct Test3
+        type : string
+    End
+
+    Test anInstance
+        value: 5
+    End
+End
+
+Task mainTask
+    Test
+End

@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: The MF-Plugin Contributors
+# SPDX-License-Identifier: MIT
+
+Location warehouse1
+    id: "0x4711"
+    type: "pallet"
+End
+
+Location production1
+    id: "0x4712"
+    type: "pallet"
+End
+
+TransportOrderStep tosWarehouse1
+    Location warehouse1
+End
+
+TransportOrderStep tosProduction1
+    Location production1
+End
+
+Task helloWorld
+    Transport
+    From tosWarehouse1
+    To tosProduction1
+End
+
+Struct Warehouse
+    number_of_packages: number
+End
+
+Warehouse warehouseX
+    number_of_packages: 3
+End
+
+Task mainTask
+    Loop i To warehouseX.number_of_packages
+        helloWorld
+End
