@@ -73,7 +73,7 @@ class Scheduler(pfdl_scheduler.scheduler.Scheduler):
         self.init_scheduler(
             scheduler_uuid,
             generate_test_ids,
-            pfdl_base_classes.get_class("PetriNetGenerator")(),
+            pfdl_base_classes.get_class("PetriNetGenerator")(pfdl_base_classes=pfdl_base_classes),
             pfdl_base_classes.get_class("TaskCallbacks")(),
         )
 
