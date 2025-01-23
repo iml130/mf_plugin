@@ -51,7 +51,7 @@ from pfdl_scheduler.plugins.mf_plugin.mf_plugin.model.move_order_step import Mov
 from pfdl_scheduler.plugins.mf_plugin.mf_plugin.model.action_order import ActionOrder
 from pfdl_scheduler.plugins.mf_plugin.mf_plugin.model.transport_order_step import TransportOrderStep
 from pfdl_scheduler.plugins.mf_plugin.mf_plugin.model.action_order_step import ActionOrderStep
-from pfdl_scheduler.plugins.parser.PFDLParser import PFDLParser
+from pfdl_scheduler.parser.PFDLParser import PFDLParser
 from pfdl_scheduler.plugins.mf_plugin.mf_plugin.parser.pfdl_tree_visitor import PFDLTreeVisitor
 
 plugin_loader = PluginLoader()

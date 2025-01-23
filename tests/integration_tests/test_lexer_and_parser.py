@@ -21,8 +21,8 @@ from antlr4.CommonTokenStream import CommonTokenStream
 
 # local sources
 ## MF-Plugin sources
-from pfdl_scheduler.plugins.parser.PFDLLexer import PFDLLexer
-from pfdl_scheduler.plugins.parser.PFDLParser import PFDLParser
+from pfdl_scheduler.parser.PFDLLexer import PFDLLexer
+from pfdl_scheduler.parser.PFDLParser import PFDLParser
 
 VALID_FOLDER_PATH = "pfdl_scheduler/plugins/mf_plugin/tests/test_files/valid/"
 INVALID_FOLDER_PATH = "pfdl_scheduler/plugins/mf_plugin/tests/test_files/invalid/syntax/"
