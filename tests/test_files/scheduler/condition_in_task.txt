@@ -5,7 +5,11 @@
 # SPDX-License-Identifier: MIT
 
 {"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "0", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "0", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "1", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "1", "status": "action_executed"}}
 
 {"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "6", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "6", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "7", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "7", "status": "action_executed"}}
