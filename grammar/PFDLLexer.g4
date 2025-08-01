@@ -15,4 +15,4 @@ STARTED_BY: 'StartedBy';
 FINISHED_BY: 'FinishedBy';
 LOCATION: 'Location';
 EVENT: 'Event';
-TIME: 'Time'
+TIME: 'Time';
