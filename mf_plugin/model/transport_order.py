@@ -50,7 +50,7 @@ class TransportOrder:
         if pickup_tos_names:
             self.pickup_tos_names = pickup_tos_names
 
-        self.pickup_tos: List[str] = []
+        self.pickup_tos: List[TransportOrderStep] = []
         if pickup_tos:
             self.pickup_tos = pickup_tos
 
@@ -58,7 +58,7 @@ class TransportOrder:
         if delivery_tos_names:
             self.delivery_tos_names = delivery_tos_names
 
-        self.delivery_tos: List[str] = []
+        self.delivery_tos: List[TransportOrderStep] = []
         if delivery_tos:
             self.delivery_tos = delivery_tos
 
