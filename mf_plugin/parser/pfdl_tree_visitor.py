@@ -35,7 +35,7 @@ from pfdl_scheduler.utils import helpers
 from pfdl_scheduler.validation.error_handler import ErrorHandler
 
 ### only for unit tests
-from pfdl_scheduler.plugins.parser.PFDLParserVisitor import PFDLParserVisitor
+from pfdl_scheduler.parser.PFDLParserVisitor import PFDLParserVisitor
 
 
 ## MF-Plugin sources
@@ -51,7 +51,7 @@ from pfdl_scheduler.plugins.mf_plugin.mf_plugin.model.action_order import Action
 from pfdl_scheduler.plugins.mf_plugin.mf_plugin.model.action_order_step import ActionOrderStep
 from pfdl_scheduler.plugins.mf_plugin.mf_plugin.model.rule import Rule
 
-from pfdl_scheduler.plugins.parser.PFDLParser import PFDLParser
+from pfdl_scheduler.parser.PFDLParser import PFDLParser
 
 import pfdl_scheduler.plugins.mf_plugin.mf_plugin.helpers as mf_plugin_helpers
 

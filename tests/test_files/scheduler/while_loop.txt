@@ -5,19 +5,25 @@
 # SPDX-License-Identifier: MIT
 
 {"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "0", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "0", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "1", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "1", "status": "action_executed"}}
 
 {"event_type": "instance_update", "data": {"instance_name": "warehouseX", "new_values": {"number_of_packages": 2}}}
 {"event_type": "service_finished", "data": {"service_uuid": "0"}}
 
 {"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "2", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "2", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "3", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "3", "status": "action_executed"}}
 
 {"event_type": "instance_update", "data": {"instance_name": "warehouseX", "new_values": {"number_of_packages": 1}}}
 {"event_type": "service_finished", "data": {"service_uuid": "1"}}
 
 {"event_type": "order_step_update", "data": {"task": "3", "order_step_uuid": "4", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "3", "order_step_uuid": "4", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "3", "order_step_uuid": "5", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "3", "order_step_uuid": "5", "status": "action_executed"}}
 
 {"event_type": "instance_update", "data": {"instance_name": "warehouseX", "new_values": {"number_of_packages": 0}}}
 {"event_type": "service_finished", "data": {"service_uuid": "2"}}

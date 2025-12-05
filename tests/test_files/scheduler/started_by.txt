@@ -8,4 +8,6 @@
 {"event_type": "instance_update", "data": {"instance_name": "startTransport", "new_values": {"value": true}}}
 
 {"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "0", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "0", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "1", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "1", "status": "action_executed"}}

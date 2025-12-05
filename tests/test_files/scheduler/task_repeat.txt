@@ -6,16 +6,26 @@
 
 
 {"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "0", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "0", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "1", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "1", "order_step_uuid": "1", "status": "action_executed"}}
 
 {"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "2", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "2", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "3", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "2", "order_step_uuid": "3", "status": "action_executed"}}
 
 {"event_type": "order_step_update", "data": {"task": "3", "order_step_uuid": "4", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "3", "order_step_uuid": "4", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "3", "order_step_uuid": "5", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "3", "order_step_uuid": "5", "status": "action_executed"}}
 
 {"event_type": "order_step_update", "data": {"task": "4", "order_step_uuid": "6", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "4", "order_step_uuid": "6", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "4", "order_step_uuid": "7", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "4", "order_step_uuid": "7", "status": "action_executed"}}
 
 {"event_type": "order_step_update", "data": {"task": "5", "order_step_uuid": "8", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "5", "order_step_uuid": "8", "status": "action_executed"}}
 {"event_type": "order_step_update", "data": {"task": "5", "order_step_uuid": "9", "status": "moved_to_location"}}
+{"event_type": "order_step_update", "data": {"task": "5", "order_step_uuid": "9", "status": "action_executed"}}

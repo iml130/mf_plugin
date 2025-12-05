@@ -513,27 +513,26 @@ class PetriNetGenerator(pfdl_scheduler.petri_net.generator.PetriNetGenerator):
         node.cluster.add_child(cluster)
         tos_node.cluster = cluster
 
-        if tos.parameters:
-            # add more nodes to the TransportOrderStep cluster
-            waiting_for_action_uuid = create_place("Waiting for action", self.net, tos_node)
-            action_executed_uuid = create_place("Action executed", self.net, tos_node)
-            last_transition_uuid = create_transition("", "", self.net, tos_node)
+        # add more nodes to the TransportOrderStep cluster
+        waiting_for_action_uuid = create_place("Waiting for action", self.net, tos_node)
+        action_executed_uuid = create_place("Action executed", self.net, tos_node)
+        last_transition_uuid = create_transition("", "", self.net, tos_node)
 
-            tos_node.cluster.add_node(waiting_for_action_uuid)
-            tos_node.cluster.add_node(action_executed_uuid)
-            tos_node.cluster.add_node(last_transition_uuid)
+        tos_node.cluster.add_node(waiting_for_action_uuid)
+        tos_node.cluster.add_node(action_executed_uuid)
+        tos_node.cluster.add_node(last_transition_uuid)
 
-            self.net.add_output(waiting_for_action_uuid, first_transition_uuid, Value(1))
-            self.net.add_input(waiting_for_action_uuid, last_transition_uuid, Value(1))
-            self.net.add_input(action_executed_uuid, last_transition_uuid, Value(1))
+        self.net.add_output(waiting_for_action_uuid, first_transition_uuid, Value(1))
+        self.net.add_input(waiting_for_action_uuid, last_transition_uuid, Value(1))
+        self.net.add_input(action_executed_uuid, last_transition_uuid, Value(1))
 
-            self.add_callback(
-                first_transition_uuid,
-                self.callbacks.waiting_for_action,
-                tos_api,
-                task_api,
-            )
-            self.add_callback(last_transition_uuid, self.callbacks.action_executed, tos_api)
+        self.add_callback(
+            first_transition_uuid,
+            self.callbacks.waiting_for_action,
+            tos_api,
+            task_api,
+        )
+        self.add_callback(last_transition_uuid, self.callbacks.action_executed, tos_api)
 
         # check if there are StartedBy or FinishedBy statements and if so, generate components
         started_by_uuid = ""
