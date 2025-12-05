@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
 -->
 
 <div align="center">
-  
+
 Material Flow Plugin for the PFDL
 ===========================
 
@@ -151,11 +151,11 @@ The example below builds upon the two _Locations_ which were defined through `go
 
 ```
 TransportOrderStep loadGoodsPallet
-    Location: goodsPallet
+    Location goodsPallet
 End
 
 TransportOrderStep unloadGoodsPallet
-    Location: warehousePos1
+    Location warehousePos1
 End
 
 Task transportGoodsPallet
@@ -203,7 +203,7 @@ Task transportGoodsPallet
     From        loadGoodsPallet
     To          unloadGoodsPallet
 
-    Constraints: {"TransportStart" : "05 14 * * *", "TransportFinished" : "45 14 * * *"}
+    Constraints {"TransportStart" : "05 14 * * *", "TransportFinished" : "45 14 * * *"}
 End
 
 ```
@@ -236,15 +236,15 @@ Location goodsPallet2
 End
 
 TransportOrderStep loadGoodsPallet
-    Location: goodsPallet
+    Location goodsPallet
 End
 
 TransportOrderStep loadgoodsPallet2
-    Location: goodsPallet2
+    Location goodsPallet2
 End
 
 TransportOrderStep unloadGoodsPallet
-    Location: warehousePos1
+    Location warehousePos1
 End
 
 Task transportGoodsPallet
@@ -278,7 +278,7 @@ Location parkingPos
 End
 
 MoveOrderStep moveToParkingPos
-    Location: parkingPos
+    Location parkingPos
 End
 
 Task transportGoodsPallet
@@ -309,7 +309,7 @@ As for the Move Order, an Action Order can only appear in a _Task_ if there was 
 
 ```
 ActionOrderStep loadAdditionalGood
-    Parameters: {"load": "pallet2"}
+    Parameters {"load": "pallet2"}
 End
 
 Task transportGoodsPallet
@@ -333,13 +333,13 @@ A _TransportOrderStep_ (TOS) is mainly described by a _Location_ (representation
 ```
 TransportOrderStep {name}
     # required
-    Location: {Instance_Location}
+    Location {Instance_Location}
 
     # optional
-    Parameters: {json_object, expression}
-    StartedBy: {Rule(...), expression}
-    FinishedBy: {Rule(...), expression}
-    OnDone: {Task} # follow up task
+    Parameters {json_object, expression}
+    StartedBy {Rule(...), expression}
+    FinishedBy {Rule(...), expression}
+    OnDone {Task} # follow up task
 End
 ```
 
@@ -351,13 +351,13 @@ Event mrLoaded
 End
 
 TransportOrderStep loadGoodsPallet
-    Location: goodsPallet
-    FinishedBy: mrLoaded.value
+    Location goodsPallet
+    FinishedBy mrLoaded.value
 End
 
 TransportOrderStep unloadGoodsPallet
-    Location: warehousePos1
-    Parameters: {"palletNumber" : 2}
+    Location warehousePos1
+    Parameters {"palletNumber" : 2}
 End
 
 Task transportgoodsPallet2
@@ -381,24 +381,24 @@ The _MoveOrderStep_ and _ActionOrderStep_ are defined similarly to the _Transpor
 ```
 MoveOrderStep {name}
     # required
-    Location: {Instance_Location}
+    Location {Instance_Location}
 
     # optional
-    StartedBy: {Rule(...), expression}
-    FinishedBy: {Rule(...), expression}
-    OnDone: {Task} # follow up task
+    StartedBy {Rule(...), expression}
+    FinishedBy {Rule(...), expression}
+    OnDone {Task} # follow up task
 End
 ```
 
 ```
 ActionOrderStep {name}
     # required
-    Parameters: {json_object, expression}
+    Parameters {json_object, expression}
 
     # optional
-    StartedBy: {Rule(...), expression}
-    FinishedBy: {Rule(...), expression}
-    OnDone: {Task} # follow up task
+    StartedBy {Rule(...), expression}
+    FinishedBy {Rule(...), expression}
+    OnDone {Task} # follow up task
 End
 ```
 
@@ -471,8 +471,8 @@ If you use the MF-Plugin for research, please include the following reference in
 ```plain
 @INPROCEEDINGS{10710795,
   author={Gödeke, Jana and Horstrup, Maximilian and Detzner, Peter},
-  booktitle={2024 IEEE 29th International Conference on Emerging Technologies and Factory Automation (ETFA)}, 
-  title={Towards a Unified Flow Description Language for CPPSs: An Example with Material Flows}, 
+  booktitle={2024 IEEE 29th International Conference on Emerging Technologies and Factory Automation (ETFA)},
+  title={Towards a Unified Flow Description Language for CPPSs: An Example with Material Flows},
   year={2024},
   volume={},
   number={},
