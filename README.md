@@ -27,19 +27,28 @@ This repository contains the grammar specification for the MF-Plugin and provide
 
 # Table of Contents
 
-- [MF-Plugin grammar extension](#mf-plugin-grammar-extension)
-  - [More flexible Structs](#more-flexible-structs)
-  - [Intralogistic primitives](#intralogistic-primitives)
-  - [Additional Task options](#additional-task-options)
-  - [Orders](#orders)
-  - [Ordersteps](#ordersteps)
-  - [Rules](#rules)
-  - [Modules](#modules)
-- [Installation](#installation)
-- [Generate ANTLR files from the grammar](#generate-antlr-files-from-the-grammar)
-- [Unit and Integrationtests](#unit-and-integrationtests)
-- [Release Notes](#release-notes)
-- [License](#license)
+- [Material Flow Plugin for the PFDL](#material-flow-plugin-for-the-pfdl)
+- [Table of Contents](#table-of-contents)
+  - [MF-Plugin grammar extension](#mf-plugin-grammar-extension)
+    - [Intralogistic Primitives](#intralogistic-primitives)
+      - [Location](#location)
+      - [Event](#event)
+      - [Time](#time)
+    - [Additional Task options](#additional-task-options)
+    - [Orders](#orders)
+      - [Transport Order](#transport-order)
+      - [Move Order](#move-order)
+      - [Action Order](#action-order)
+    - [OrderSteps](#ordersteps)
+      - [TransportOrderStep](#transportorderstep)
+      - [MoveOrderStep and ActionOrderStep](#moveorderstep-and-actionorderstep)
+    - [Rules](#rules)
+  - [Installation](#installation)
+    - [Requirements](#requirements)
+  - [Generate ANTLR files from the grammar](#generate-antlr-files-from-the-grammar)
+  - [Unit and Integrationtests](#unit-and-integrationtests)
+  - [License](#license)
+  - [Academic Attribution](#academic-attribution)
 
 ## MF-Plugin grammar extension
 
@@ -214,8 +223,18 @@ In the simplest form, a _Task_ in the MF-Plugin describes that an item should be
 
 A Transport Order (indicated by the _Transport_ keyword) is made up of at least two _TransportOrderSteps_. A _TransportOrderStep_ inherently consists of a Move Order or an Action Order or both. A Move Order is defined as the movement from the current location to a specific destination. An Action Order is defined as an action of manual or automatic loading or unloading of a mobile robot.
 
-To allow more flexibility, besides the _Transport_, there also exist a _Move_ and _Action_ statement, representing the Move and Action Order. However, these statements can only appear in a _Task_ after a _Transport_ was executed. Otherwise, for example with only an Action Order in a _Task_, it would make no sense that a random MR executes an action, as this _Action_ in general depends on a specific _Location_, which might not be similar to the MR's location. Instead, each _Transport_, _Action_ or _Move_ included in a _Task_ is meant to be executed by the same mobile robot.
-To provide coherence, a _MoveOrderStep_ and _ActionOrderStep_ is included, which works like the _TransportOrderStep_.
+To allow more flexibility, besides the _Transport_,
+there also exist a _Move_ and _Action_ statement,
+representing the Move and Action Order.
+However, these statements can only appear in a _Task_ after a _Transport_ was executed.
+Otherwise, for example with only an Action Order in a _Task_,
+it would make no sense that a random MR executes an action,
+as this _Action_ in general depends on a specific _Location_,
+which might not be similar to the MR's location.
+Instead, each _Transport_, _Action_ or _Move_ included in a _Task_
+is meant to be executed by the same mobile robot.
+To provide coherence, a _MoveOrderStep_ and _ActionOrderStep_ is included,
+which works like the _TransportOrderStep_.
 
 #### Transport Order
 
