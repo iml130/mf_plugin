@@ -226,12 +226,11 @@ A Transport Order (indicated by the _Transport_ keyword) is made up of at least 
 To allow more flexibility, besides the _Transport_,
 there also exist a _Move_ and _Action_ statement,
 representing the Move and Action Order.
-However, these statements can only appear in a _Task_ after a _Transport_ was executed.
-Otherwise, for example with only an Action Order in a _Task_,
-it would make no sense that a random MR executes an action,
-as this _Action_ in general depends on a specific _Location_,
-which might not be similar to the MR's location.
-Instead, each _Transport_, _Action_ or _Move_ included in a _Task_
+However, the _Action_ statement can only appear in a _Task_
+after a _Transport_ or _Move_ was executed.
+This is because actions (e.g. unloading) are generally deeply tied to a specific location and there
+is no other way of guaranteeing a MRs location, except for moving it to that location.
+Note that each _Transport_, _Action_ or _Move_ included in a _Task_
 is meant to be executed by the same mobile robot.
 To provide coherence, a _MoveOrderStep_ and _ActionOrderStep_ is included,
 which works like the _TransportOrderStep_.
@@ -289,7 +288,7 @@ Move
 To {moveOrderStep}
 ```
 
-As mentioned, a Move Order can only appear in a _Task_ if there was at least one Transport Order (and therefore a MR assigned) before. See an example below. Here, the mobile robot that executes the transport in `transportGoodsPallet` should drive to a specific parking location afterwards. The following program is illustrated in Figure 5.
+See an in-context example below. Here, the mobile robot that executes the transport in `transportGoodsPallet` should drive to a specific parking location afterwards. The following program is illustrated in Figure 5.
 
 ```
 Location parkingPos
@@ -324,7 +323,7 @@ Action
 Do {actionOrderStep}
 ```
 
-As for the Move Order, an Action Order can only appear in a _Task_ if there was at least one Transport Order (and therefore a MR assigned) before. In the example below, the MR is instructed to load a specific pallet at the _Location_ of `unloadGoodsPallet` by using an _Action_ statement.
+An Action Order can only appear in a _Task_ if there was at least one Transport/Move Order (and therefore a MR assigned) before. In the example below, the MR is instructed to load a specific pallet at the _Location_ of `unloadGoodsPallet` by using an _Action_ statement.
 
 ```
 ActionOrderStep loadAdditionalGood

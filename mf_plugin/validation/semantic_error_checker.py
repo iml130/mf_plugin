@@ -224,12 +224,11 @@ class SemanticErrorChecker(pfdl_scheduler.validation.semantic_error_checker.Sema
             self.error_handler.print_error(error_msg, context=task.context)
             return False
         for task_statement in task.statements:
-            # check if a TransportOrder is called before any ActionOrder or MoveOrder
-            if isinstance(task_statement, TransportOrder):
-                # first TransportOrder is found before any ActionOrder or MoveOrder --> valid
-                break
+            # check if a TransportOrder or MoveOrder is called before any ActionOrder
+            if isinstance(task_statement, (TransportOrder, MoveOrder)):
+                break # --> valid
             elif isinstance(task_statement, (ActionOrder, MoveOrder)):
-                error_msg = f"The Task {task.name} contains a Move or Action Order before a Transport Order was called."
+                error_msg = f"The Task {task.name} contains an Action Order before a Transport or Move Order was called."
                 self.error_handler.print_error(error_msg, context=task.context)
                 return False
 
